@@ -11,10 +11,9 @@ int main() {
     fgets(str, sizeof(str), stdin);
 
     str[strcspn(str, "\n")] = '\0';  // fgets adds the newline too, so we are changing it to null char
-
     int len = strlen(str);
 
-    printf("Reverse string: ");
+    printf("Reversed string: ");
 
     for (int i = len - 1; i >= 0; i--) {
         if (str[i] != '\0') {
@@ -24,3 +23,11 @@ int main() {
 
     return 0;
 }
+
+/*
+Input:
+Enter the string: ABC
+
+Output:
+Reversed string: CBA
+*/

@@ -2,9 +2,7 @@
 
 #include <stdio.h>
 int main() {
-    int height_in = 7;
-    int width_in = 5;
-
+    int height_in = 7, width_in = 5;
     int perimeter = 2 * (height_in + width_in);
     int area = height_in * width_in;
 

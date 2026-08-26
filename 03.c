@@ -6,11 +6,8 @@ int main() {
     int num1, num2;
     printf("Enter two numbers : ");
     scanf("%d %d", &num1, &num2);
-
-    int sum = num1 + num2;
-    int product = num1 * num2;
-
-    printf("Sum of these numbers are %d.", sum);
+    printf("\nSum of these numbers are %d.", num1 + num2);
+    printf("\nProduct of these numbers are %d.", num1 * num2);
 
     return 0;
 }
