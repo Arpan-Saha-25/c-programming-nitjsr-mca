@@ -3,18 +3,21 @@
 #include <stdio.h>
 
 int main() {
-    printf("Enter a 2-digit number: ");
     int num;
+    printf("Enter the number: ");
     scanf("%d", &num);
 
+    int rev = 0, rem = 0;
     if (num > 9 && num < 100) {
-        int i = 100, remainder;
-        while (i > 0)
-        {
-            remainder = num % i;
-            i/=10;
-        }
-        
-    }
+        rem = num % 10;
+        rev = rev * 10 + rem;
+        num /= 10;
+        rem = num % 10;
+        rev = rev * 10 + rem;
+        num /= 10;
+        printf("Reversed Number is %d.", rev);
+    } else
+        printf(">>> Please enter a valid 2 digit number.\n");
+
     return 0;
 }
