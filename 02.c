@@ -10,7 +10,8 @@ int main() {
     printf("Enter the string: ");
     fgets(str, sizeof(str), stdin);
 
-    str[strcspn(str, "\n")] = '\0';  // fgets adds the newline too, so we are changing it to null char
+    str[strcspn(str, "\n")] = '\0';
+    // fgets adds the newline too, so we are changing it to null char
     int len = strlen(str);
 
     printf("Reversed string: ");
