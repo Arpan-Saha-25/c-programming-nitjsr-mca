@@ -12,15 +12,18 @@ int main() {
         s1 + s2 > s3 &&
         s2 + s3 > s1 &&
         s1 + s3 > s2) {
-        if (s1 == s2 && s2 == s3) {
-            printf("It is an equilateral triangle.");
-        } else if (s1 == s2 || s2 == s3 || s1 == s3) {
-            printf("It is an isosceles triangle.");
-        } else {
-            printf("It is a scalene triangle.");
-        }
+
+        if (s1 == s2 && s2 == s3)
+            printf("It is an equilateral triangle.\n");
+
+        else if (s1 == s2 || s2 == s3 || s1 == s3)
+            printf("It is an isosceles triangle.\n");
+
+        else
+            printf("It is a scalene triangle.\n");
+
     } else {
-        printf("It is not a valid triangle.");
+        printf("It is not a valid triangle.\n");
     }
 
     return 0;

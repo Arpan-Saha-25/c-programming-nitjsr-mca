@@ -12,16 +12,16 @@ int main() {
     scanf("%d", &month);
 
     if (month == 2)
-        printf(">>> It has 28/29 days.");
+        printf("It has 28/29 days.\n");
 
     else if (month == 4 || month == 6 || month == 9 || month == 11)
-        printf(">>> It has 30 days.");
+        printf("It has 30 days.\n");
 
     else if (month >= 1 && month <= 12)
-        printf(">>> It has 31 days.");
+        printf("It has 31 days.\n");
 
     else
-        printf(">>> Invalid month number.");
+        printf("Invalid month number.\n");
 
     return 0;
 }
