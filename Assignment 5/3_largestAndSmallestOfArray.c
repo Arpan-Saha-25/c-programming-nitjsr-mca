@@ -1,4 +1,4 @@
-// Write a C program to find the largest and smallest elements of an array.
+// Write a C program to find the largest and smallest elements of an array.
 
 #include <stdio.h>
 

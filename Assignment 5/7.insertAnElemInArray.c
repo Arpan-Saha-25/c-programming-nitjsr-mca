@@ -8,6 +8,11 @@ int main() {
     printf("Size: ");
     scanf("%d", &size);
 
+    if (size <= 0) {
+        printf("Invalid Size.");
+        return 0;
+    }
+
     int arr[size + 1];
 
     printf("Enter Array:\n");
@@ -19,11 +24,20 @@ int main() {
     printf("Enter element and its index:\n");
     scanf("%d%d", &elem, &pos);
 
+    // Validate insertion position
+    if (pos < 0 || pos > size) {
+        printf("Invalid Position.");
+        return 0;
+    }
+
+    // Shift elements to the right
     for (int i = size; i > pos; i--) {
         arr[i] = arr[i - 1];
     }
 
+    // Insert the element
     arr[pos] = elem;
+
     printf("New Array:\n");
     for (int i = 0; i < size + 1; i++) {
         printf("%d ", arr[i]);
@@ -31,13 +45,12 @@ int main() {
 
     return 0;
 }
-
 /*
-Size: 5
+Size: 4
 Enter Array:
-10 20 30 40 50
+1 2 3 4
 Enter element and its index:
--5 3
+9 2
 New Array:
-10 20 30 -5 40 50
+1 2 9 3 4
 */
