@@ -1,7 +1,8 @@
-// Write a menu-driven program to calculate the factorial of a given number
-// check whether the number is prime or not check whether the number is a
-// palindrome or not. Use different functions for each of the above tasks and
-// call the functions from main ( ) using switch statement.
+
+// Write a menu-driven program to calculate the factorial of a given number,
+// check whether the number is prime or not, and check whether the number is
+// a palindrome or not. Use different functions for each of the above tasks
+// and call the functions from main() using switch statement.
 
 #include <stdio.h>
 
@@ -10,79 +11,89 @@ void isPrime(int);
 void isPalindrome(int);
 
 int main() {
-    printf(
-        "Press\n1 for factorial\n2 for prime\n3 for palindrome\n4 for "
-        "exit\n----------------\n>>> ");
+    int choice, n;
 
-    int choice;
-    scanf("%d", &choice);
+    do {
+        printf(
+            "\nPress\n1 for factorial\n2 for prime\n3 for palindrome\n4 for "
+            "exit\n----------------\n>>> ");
+        scanf("%d", &choice);
 
-    if (choice == 4) {
-        printf("Exited.");
-        return 0;
-    }
+        switch (choice) {
+            case 1:
+                printf("Enter the number: ");
+                scanf("%d", &n);
+                factorial(n);
+                break;
 
-    printf("Enter the number: ");
-    int n;
-    scanf("%d", &n);
-    switch (choice) {
-        case 1:
-            factorial(n);
-            break;
-        case 2:
-            isPrime(n);
-            break;
-        case 3:
-            isPalindrome(n);
-            break;
-        case 4:
-            return 0;
+            case 2:
+                printf("Enter the number: ");
+                scanf("%d", &n);
+                isPrime(n);
+                break;
 
-        default:
-            break;
-    }
+            case 3:
+                printf("Enter the number: ");
+                scanf("%d", &n);
+                isPalindrome(n);
+                break;
+
+            case 4:
+                printf("Exited.");
+                break;
+
+            default:
+                printf("Invalid choice!");
+        }
+
+    } while (choice != 4);
 
     return 0;
 }
 
 void factorial(int num) {
-    // printf("0000000000000000000000000000000000000000000\n");
-    int factorial = 1;
-
-    for (int i = 1; i <= num; i++) {
-        factorial = factorial * i;
+    if (num < 0) {
+        printf("Factorial is not defined for negative numbers.");
+        return;
     }
 
-    printf("Factorial of %d = %d", num, factorial);
-    return;
+    unsigned long long fact = 1;
+
+    for (int i = 1; i <= num; i++) {
+        fact = fact * i;
+    }
+
+    printf("Factorial of %d = %llu\n", num, fact);
 }
 
 void isPrime(int num) {
-    int isPrime = 1;
+    int flag = 1;
 
     if (num <= 1) {
-        isPrime = 0;
+        flag = 0;
     } else {
-        for (int i = 2; i < num; i++) {
+        for (int i = 2; i * i <= num; i++) {
             if (num % i == 0) {
-                isPrime = 0;
+                flag = 0;
                 break;
             }
         }
     }
 
-    if (isPrime) {
-        printf("%d is a Prime number.", num);
-    } else {
-        printf("%d is not a Prime number.", num);
-    }
-    return;
+    if (flag)
+        printf("%d is a Prime number.\n", num);
+    else
+        printf("%d is not a Prime number.\n", num);
 }
 
 void isPalindrome(int num) {
-    int original, reverse = 0, remainder;
+    int original = num;
+    int reverse = 0, remainder;
 
-    original = num;
+    if (num < 0) {
+        printf("%d is not a Palindrome number.\n", num);
+        return;
+    }
 
     while (num != 0) {
         remainder = num % 10;
@@ -90,10 +101,30 @@ void isPalindrome(int num) {
         num = num / 10;
     }
 
-    if (original == reverse) {
-        printf("%d is a Palindrome number.", original);
-    } else {
-        printf("%d is not a Palindrome number.", original);
-    }
-    return;
+    if (original == reverse)
+        printf("%d is a Palindrome number.\n", original);
+    else
+        printf("%d is not a Palindrome number.\n", original);
 }
+
+/*
+
+Press
+1 for factorial
+2 for prime
+3 for palindrome
+4 for exit
+----------------
+>>> 1
+Enter the number: 5
+Factorial of 5 = 120
+
+Press
+1 for factorial
+2 for prime
+3 for palindrome
+4 for exit
+----------------
+>>> 4
+Exited.
+*/

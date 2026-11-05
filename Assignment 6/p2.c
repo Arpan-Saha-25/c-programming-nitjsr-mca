@@ -15,7 +15,7 @@ void array_max(int arr[], int size) {
 
 void array_min(int arr[], int size) {
     int min = arr[0];
-    for (int i = 0; i < size; i++) {
+    for (int i = 1; i < size; i++) {
         if (arr[i] < min) {
             min = arr[i];
         }
@@ -43,3 +43,11 @@ int main() {
 
     return 0;
 }
+
+/*
+Enter the size: 5
+Enter the array:
+1 2 3 4 5
+Max elem is 5
+Min elem is 1
+*/
