@@ -39,11 +39,11 @@ int main() {
                 break;
 
             case 4:
-                printf("Exited.");
+                printf("Exited.\n");
                 break;
 
             default:
-                printf("Invalid choice!");
+                printf("Invalid choice!\n");
         }
 
     } while (choice != 4);
@@ -53,7 +53,12 @@ int main() {
 
 void factorial(int num) {
     if (num < 0) {
-        printf("Factorial is not defined for negative numbers.");
+        printf("Factorial is not defined for negative numbers.\n");
+        return;
+    }
+
+    if (num > 20) {
+        printf("Number is too large to calculate factorial.\n");
         return;
     }
 
@@ -115,9 +120,9 @@ Press
 3 for palindrome
 4 for exit
 ----------------
->>> 1
-Enter the number: 5
-Factorial of 5 = 120
+>>> 2
+Enter the number: 17
+17 is a Prime number.
 
 Press
 1 for factorial

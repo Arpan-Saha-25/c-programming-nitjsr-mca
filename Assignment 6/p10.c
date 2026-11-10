@@ -1,4 +1,3 @@
-
 // Write three functions, using pointers, to concatenate two strings, to compare
 // two strings and to reverse a string, respectively. Test these functions in a
 // complete program.
@@ -44,6 +43,8 @@ void revString(char* string) {
         end++;
     }
 
+    if (end == start) return;
+
     end--;
 
     while (start < end) {
@@ -68,6 +69,7 @@ int main() {
 
     // Remove newline from string 1
     char* p = string1;
+
     while (*p != '\0') {
         if (*p == '\n') {
             *p = '\0';
@@ -78,6 +80,7 @@ int main() {
 
     // Remove newline from string 2
     p = string2;
+
     while (*p != '\0') {
         if (*p == '\n') {
             *p = '\0';
@@ -88,11 +91,30 @@ int main() {
 
     printf("\nComparison: %d", compare(string1, string2));
 
-    concat(string1, string2);
-    printf("\nConcatenation: %s", string1);
+    // Check available space before concatenation
+    int len1 = 0, len2 = 0;
 
-    revString(string1);
-    printf("\nReversed string: %s\n", string1);
+    p = string1;
+    while (*p != '\0') {
+        len1++;
+        p++;
+    }
+
+    p = string2;
+    while (*p != '\0') {
+        len2++;
+        p++;
+    }
+
+    if (len1 + len2 < sizeof(string1)) {
+        concat(string1, string2);
+        printf("\nConcatenation: %s", string1);
+
+        revString(string1);
+        printf("\nReversed string: %s\n", string1);
+    } else {
+        printf("\nStrings are too large to concatenate.\n");
+    }
 
     return 0;
 }
