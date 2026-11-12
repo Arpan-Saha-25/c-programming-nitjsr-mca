@@ -23,4 +23,3 @@ _____7.6	Write a program which will calculate income tax and total tax for sever
 •	taxable income over 1,20,000 – income tax = 12,000 + 0.3 (taxable income – 40,000)
          Calculate the tax payable by a person using the above scheme. The program should accept pan_no, name, address, taxable income and tax payable and print the details of the persons wh0 have a tax of 15,000 and above.
 
-
